@@ -4,7 +4,7 @@ services:
   map:
     build:
       context: .
-      dockerfile: Dockerfile.map
+      dockerfile: Dockerfile-map
     ports:
       - "9090-9099:8080"
     deploy:
@@ -13,7 +13,7 @@ services:
   reduce:
     build:
       context: .
-      dockerfile: Dockerfile.reduce
+      dockerfile: Dockerfile-reduce
     ports:
       - "9091-9099:8080"
     deploy:
@@ -22,6 +22,6 @@ services:
   gateway:
     build:
       context: .
-      dockerfile: Dockerfile.gateway
+      dockerfile: Dockerfile-gateway
     ports:
       - "9092-9099:8080"
