@@ -3,6 +3,7 @@ package com.flash.gateway.service;
 import com.flash.gateway.dto.request.AnalyseRequest;
 import com.flash.gateway.dto.response.AnalyseResponse;
 import org.springframework.stereotype.Service;
+import com.flash.common.services.MessageService;
 
 @Service
 public class AnalyseService {

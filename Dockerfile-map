@@ -5,12 +5,18 @@ COPY pom.xml pom.xml
 COPY map/pom.xml map/pom.xml
 COPY gateway/pom.xml gateway/pom.xml
 COPY reduce/pom.xml reduce/pom.xml
+COPY common/pom.xml common/pom.xml
 RUN mvn -B -e org.apache.maven.plugins:maven-dependency-plugin:3.1.2:go-offline -DexcludeArtifactIds=domain
 
 FROM maven:3.9.8-eclipse-temurin-21 AS builder
 WORKDIR /app
 COPY --from=dependencies /root/.m2 /root/.m2
 COPY --from=dependencies /app /app
+
+COPY common/src /app/common/src
+WORKDIR /app/common
+RUN mvn -B -e clean install -DskipTests
+
 COPY map/src /app/map/src
 WORKDIR /app/map
 RUN mvn -B -e clean install -DskipTests

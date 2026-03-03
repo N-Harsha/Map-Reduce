@@ -28,7 +28,7 @@ services:
       context: .
       dockerfile: Dockerfile-map
     ports:
-      - "8080-8099:8080"
+      - "8080-8083:8080"
 #    deploy:
 #      replicas: 3
     depends_on:
@@ -41,7 +41,7 @@ services:
       context: .
       dockerfile: Dockerfile-reduce
     ports:
-      - "8081-8099:8080"
+      - "8084-8087:8080"
 #    deploy:
 #      replicas: 3
     depends_on:
@@ -54,7 +54,7 @@ services:
       context: .
       dockerfile: Dockerfile-gateway
     ports:
-      - "8082-8099:8080"
+      - "8088-8091:8080"
     depends_on:
       - kafka-broker
     networks:
